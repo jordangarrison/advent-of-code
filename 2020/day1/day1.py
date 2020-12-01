@@ -42,6 +42,7 @@ def main():
     result = get_3_2020_numbers(data)
     answer = multiply_list(result)
     print(f"3 Numbers Answer: {answer}")
+    answer = get_2020_numbers(3, data)
 
 
 if __name__ == "__main__":
