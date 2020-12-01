@@ -1,6 +1,6 @@
 # Advent of Code
 
-Reference to Code Challenge: https://adventofcode.com/
+Reference to Code Challenge: https://adventofcode.com
 
 ## This repo
 
