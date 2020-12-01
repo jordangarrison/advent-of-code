@@ -1,4 +1,5 @@
 import os
+import random
 from functools import reduce
 
 
@@ -30,6 +31,15 @@ def get_3_2020_numbers(number_list):
                     return (d, dd, ddd)
 
 
+def get_2020_numbers(number_list, length):
+    target = 2020
+    mysum = 0
+    while mysum != 2020:
+        result = random.sample(number_list, length)
+        if sum(result) == 2020:
+            return result
+
+
 def multiply_list(num_list):
     return reduce(lambda x, y: x * y, num_list, 1)
 
@@ -42,7 +52,14 @@ def main():
     result = get_3_2020_numbers(data)
     answer = multiply_list(result)
     print(f"3 Numbers Answer: {answer}")
-    answer = get_2020_numbers(3, data)
+
+    # Generic but really slow
+    result = get_2020_numbers(data, 2)
+    answer = multiply_list(result)
+    print(f"2 Numbers Answer: {answer}")
+    result = get_2020_numbers(data, 3)
+    answer = multiply_list(result)
+    print(f"3 Numbers Answer: {answer}")
 
 
 if __name__ == "__main__":
