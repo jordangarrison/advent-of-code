@@ -36,8 +36,8 @@ def get_2020_numbers(number_list, length):
     mysum = 0
     while mysum != 2020:
         result = random.sample(number_list, length)
-        if sum(result) == 2020:
-            return result
+        mysum = sum(result)
+    return result
 
 
 def multiply_list(num_list):
