@@ -51,7 +51,7 @@ def __validate2(meta):
     if pass_arr[pos2] == meta["character"]:
         valid_count = valid_count + 1
     meta["valid"] = valid_count
-    print(pass_arr[pos1], pass_arr[pos2], meta["character"], valid_count, meta["valid"])
+    # print(pass_arr[pos1], pass_arr[pos2], meta["character"], valid_count, meta["valid"])
     return meta
 
 
@@ -61,7 +61,7 @@ def validate_passwords2(data2):
 
 def count_valid(final_data):
     valid = [d for d in final_data if d["valid"] == 1]
-    print(valid)
+    # print(valid)
     return len(valid)
 
 
