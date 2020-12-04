@@ -7,8 +7,6 @@ def __read_input_file(filename):
     my_input_file = os.path.join(my_dir, filename)
     with open(my_input_file) as my_input:
         data = [list(line.strip()) for line in my_input.readlines()]
-        # for line in my_input:
-        #     line_arr = list(line.strip())
     return data
 
 
