@@ -42,18 +42,6 @@
        (map #(get-coordinate % metadata number-map))
        (reduce +)))
 
-(comment
-  (def data (get-data "data/day3.test.dat"))
-  (def meta (map-metadata data))
-  (def numeric-data (numeric-map data))
-  (get-coordinate [0 1] meta numeric-data)
-  (def part1-path (get-path [3 2] meta))
-  (map #(get-coordinate % meta numeric-data) part1-path)
-  (->> (get-path [3 1] meta)
-       (map #(get-coordinate % meta numeric-data))
-       (reduce +))
-  (map #(mod (* 1 %) 11) (range (/ 20 2))))
-
 (defn main
   [& args]
   (let [data (get-data "data/day3.dat")
