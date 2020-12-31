@@ -35,8 +35,7 @@
         c (:character pass-line)
         index-chars (map #(nth pass %) positions)]
     ;; only 1 character index can have the correct character
-    (= 1 (count (filter #(= (str c) (str %)) index-chars)))
-    ))
+    (= 1 (count (filter #(= (str c) (str %)) index-chars)))))
 
 (defn main
   [& args]
@@ -44,5 +43,4 @@
         data (get-data "data/day2.dat")
         part1 (count (filter -validate-part1 data))
         part2 (count (filter -validate-part2 data))]
-    (str "Part 1: " part1 "\nPart 2: " part2)
-    ))
+    (str "Part 1: " part1 "\nPart 2: " part2)))
