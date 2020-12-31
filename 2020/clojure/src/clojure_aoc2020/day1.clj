@@ -1,7 +1,7 @@
 (ns clojure-aoc2020.day1
   "Advent of Code 2020: Day 1 Challenge"
   (:require [clojure.string :as string]
-            [clojure.math.combinatorics :as combinatorics]))
+            [clojure.math.combinatorics :as combo]))
 
 (defn get-data
   [f]
@@ -13,17 +13,17 @@
 
 (defn generate-combinations
   [data number]
-  (combinatorics/combinations data number))
+  (combo/combinations data number))
 
 (defn filter-combination
   [data target]
-  (some #(= target (apply + %)) data))
+  (filter #(= target (apply + %)) data))
 
 (defn get-multiplied-combination
   [data n total]
   (-> data
-      (#(get-combinations % n))
-      (#(filter-combinations % total))
+      (#(generate-combinations % n))
+      (#(filter-combination % total))
       first
       (#(reduce * %))))
 
