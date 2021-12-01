@@ -53,18 +53,9 @@ func (d1 *day1) Part2() int {
 	var sum int
 	inputNumStrings := strings.Split(d1.input, "\n")
 	for i := 2; i < len(inputNumStrings); i++ {
-		num0, err := strconv.Atoi(inputNumStrings[i-2])
-		if err != nil {
-			panic(err)
-		}
-		num1, err := strconv.Atoi(inputNumStrings[i-1])
-		if err != nil {
-			panic(err)
-		}
-		num2, err := strconv.Atoi(inputNumStrings[i])
-		if err != nil {
-			panic(err)
-		}
+		num0, _ := strconv.Atoi(inputNumStrings[i-2])
+		num1, _ := strconv.Atoi(inputNumStrings[i-1])
+		num2, _ := strconv.Atoi(inputNumStrings[i])
 		// fmt.Printf("%d %d %d\n", num0, num1, num2)
 		current = num0 + num1 + num2
 		// fmt.Printf("Current: %d\n", current)
