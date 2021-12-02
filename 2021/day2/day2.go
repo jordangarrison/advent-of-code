@@ -59,17 +59,17 @@ func (d *Day2) Part2(input string) int {
 	re := regexp.MustCompile(`\s+`)
 	for _, line := range lines {
 		words := re.Split(line, -1)
-		directon := words[0]
+		direction := words[0]
 		distance, _ := strconv.Atoi(words[1])
-		if directon == "up" || directon == "down" {
-			position[2] += directions[directon] * distance
-		} else if directon == "forward" {
-			forward := directions[directon] * distance
+		if direction == "up" || direction == "down" {
+			position[2] += directions[direction] * distance
+		} else if direction == "forward" {
+			forward := directions[direction] * distance
 			depth := position[2] * forward
 			position[0] += forward
 			position[1] += depth
 		} else {
-			fmt.Printf("Invalid direction: %s\n", directon)
+			fmt.Printf("Invalid direction: %s\n", direction)
 		}
 	}
 	return position[0] * position[1]
