@@ -29,7 +29,6 @@ func Run(input string) {
 }
 
 func (d1 *day1) Part1() int {
-	fmt.Println("Part 1")
 	var previous int
 	var sum int
 	for i, numString := range strings.Split(d1.input, "\n") {
@@ -47,7 +46,6 @@ func (d1 *day1) Part1() int {
 func (d1 *day1) Part2() int {
 	// create window of size 3
 	// if window is increasing, add to sum
-	fmt.Println("Part 2")
 	var previous int
 	var current int
 	var sum int

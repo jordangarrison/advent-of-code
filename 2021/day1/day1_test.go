@@ -42,3 +42,37 @@ func TestPart2(t *testing.T) {
 		t.Errorf("Expected %v, got %v", expected, result)
 	}
 }
+
+func BenchmarkPart1(b *testing.B) {
+	input := `199
+200
+208
+210
+200
+207
+240
+269
+260
+263`
+	d1 := NewDay1(input)
+	for i := 0; i < b.N; i++ {
+		d1.Part1()
+	}
+}
+
+func BenchmarkPart2(b *testing.B) {
+	input := `199
+200
+208
+210
+200
+207
+240
+269
+260
+263`
+	d1 := NewDay1(input)
+	for i := 0; i < b.N; i++ {
+		d1.Part2()
+	}
+}

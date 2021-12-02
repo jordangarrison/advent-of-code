@@ -19,8 +19,6 @@ func readFile(path string) (string, error) {
 // Get data for a given day and part
 func GetData(day int, part int) (string, error) {
 	filepath := "./data/day" + strconv.Itoa(day) + "/part" + strconv.Itoa(part) + ".txt"
-	// determine absolute path relative to this file
-
 	fmt.Println("Reading data from", filepath)
 	return readFile(filepath)
 }
