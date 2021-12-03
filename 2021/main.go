@@ -6,6 +6,7 @@ import (
 
 	"github.com/jordangarrison/advent-of-code/2021/day1"
 	"github.com/jordangarrison/advent-of-code/2021/day2"
+	"github.com/jordangarrison/advent-of-code/2021/day3"
 	"github.com/jordangarrison/advent-of-code/2021/util"
 )
 
@@ -28,6 +29,12 @@ func main() {
 				panic(err)
 			}
 			util.Stats(day2.Run, part1)
+		case "3":
+			part1, err := util.GetData(3, 1)
+			if err != nil {
+				panic(err)
+			}
+			util.Stats(day3.Run, part1)
 		default:
 			fmt.Printf("Day %s not implemented\n", arg)
 		}
