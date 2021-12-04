@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/jordangarrison/advent-of-code/2021/day1"
-	"github.com/jordangarrison/advent-of-code/2021/day2"
-	"github.com/jordangarrison/advent-of-code/2021/day3"
-	"github.com/jordangarrison/advent-of-code/2021/util"
+	"github.com/jordangarrison/advent-of-code/2021/go/day1"
+	"github.com/jordangarrison/advent-of-code/2021/go/day2"
+	"github.com/jordangarrison/advent-of-code/2021/go/day3"
+	"github.com/jordangarrison/advent-of-code/2021/go/util"
 )
 
 func main() {
