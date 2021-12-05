@@ -109,25 +109,11 @@ func (b *Board) CheckBingo() bool {
 		if isBingo(row) {
 			return true
 		}
-		// 	for j, place := range row {
-		// 		if i == j {
-		// 			diagonal = append(diagonal, place)
-		// 		}
-		// 	}
-		// }
-		// if isBingo(diagonal) {
-		// 	return true
-		// }
 		tb := transpose(b.Places)
-		// var diagonalT []Place
 		for _, row := range tb {
 			if isBingo(row) {
 				return true
 			}
-			// for j, place := range row {
-			// 	if i == j {
-			// 		diagonalT = append(diagonalT, place)
-			// 	}
 		}
 	}
 	// return isBingo(diagonalT)
