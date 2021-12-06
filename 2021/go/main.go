@@ -21,40 +21,22 @@ func main() {
 		// Run day corresponding to argument
 		switch arg {
 		case "1":
-			part1, err := util.GetData(1, 1)
-			if err != nil {
-				panic(err)
-			}
+			part1 := util.GetData(1, 1)
 			util.Stats(day1.Run, part1)
 		case "2":
-			part1, err := util.GetData(2, 1)
-			if err != nil {
-				panic(err)
-			}
+			part1 := util.GetData(2, 1)
 			util.Stats(day2.Run, part1)
 		case "3":
-			part1, err := util.GetData(3, 1)
-			if err != nil {
-				panic(err)
-			}
+			part1 := util.GetData(3, 1)
 			util.Stats(day3.Run, part1)
 		case "4":
-			part1, err := util.GetData(4, 1)
-			if err != nil {
-				panic(err)
-			}
+			part1 := util.GetData(4, 1)
 			util.Stats(day4.Run, part1)
 		case "5":
-			part1, err := util.GetData(5, 1)
-			if err != nil {
-				panic(err)
-			}
+			part1 := util.GetData(5, 1)
 			util.Stats(day5.Run, part1)
 		case "6":
-			part1, err := util.GetData(6, 1)
-			if err != nil {
-				panic(err)
-			}
+			part1 := util.GetData(6, 1)
 			util.Stats(day6.Run, part1)
 		default:
 			fmt.Printf("Day %s not implemented\n", arg)
