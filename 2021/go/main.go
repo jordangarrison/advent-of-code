@@ -25,7 +25,7 @@ func main() {
 			fmt.Println("Error: Invalid day")
 			os.Exit(1)
 		}
-		data := util.PullData(day)
+		data, err := util.PullData(day)
 		fmt.Printf("%s\n", data)
 		return
 	}

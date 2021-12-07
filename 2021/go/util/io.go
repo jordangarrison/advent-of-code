@@ -29,22 +29,22 @@ func GetData(day int, part int) string {
 	return contents
 }
 
-func PullData(day int) []byte {
+func PullData(day int) ([]byte, error) {
 	client := new(http.Client)
 	url := "https://adventofcode.com/2019/day/" + strconv.Itoa(day) + "/input"
 	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {
-		panic(err)
+		return nil, err
 	}
 	req.AddCookie(&http.Cookie{Name: "session", Value: os.Getenv("AOC_COOKIE")})
 	resp, err := client.Do(req)
 	if err != nil {
-		panic(err)
+		return nil, err
 	}
 	defer resp.Body.Close()
 	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
-		panic(err)
+		return nil, err
 	}
-	return body
+	return body, nil
 }
