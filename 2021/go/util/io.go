@@ -3,13 +3,15 @@ package util
 import (
 	"fmt"
 	"io/ioutil"
+	"net/http"
+	"os"
 	"strconv"
 	"strings"
 )
 
 // Read a file and return its contents as a string.
-func readFile(path string) (string, error) {
-	contents, err := ioutil.ReadFile(path)
+func readFile(filepath string) (string, error) {
+	contents, err := ioutil.ReadFile(filepath)
 	if err != nil {
 		return "", err
 	}
@@ -25,4 +27,24 @@ func GetData(day int, part int) string {
 		panic(err)
 	}
 	return contents
+}
+
+func PullData(day int) []byte {
+	client := new(http.Client)
+	url := "https://adventofcode.com/2019/day/" + strconv.Itoa(day) + "/input"
+	req, err := http.NewRequest("GET", url, nil)
+	if err != nil {
+		panic(err)
+	}
+	req.AddCookie(&http.Cookie{Name: "session", Value: os.Getenv("AOC_COOKIE")})
+	resp, err := client.Do(req)
+	if err != nil {
+		panic(err)
+	}
+	defer resp.Body.Close()
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		panic(err)
+	}
+	return body
 }
