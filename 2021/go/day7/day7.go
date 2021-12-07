@@ -92,9 +92,9 @@ func leastDistanceNthTriangular(numbers []int) (int, int) {
 }
 
 func nthTriangular(input int) int {
-	cost := 0
-	for i := input; i > 0; i-- {
-		cost += i
-	}
+	cost := (input * (input + 1)) / 2
+	// for i := input; i > 0; i-- {
+	// 	cost += i
+	// }
 	return cost
 }
