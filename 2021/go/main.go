@@ -12,6 +12,7 @@ import (
 	"github.com/jordangarrison/advent-of-code/2021/go/day5"
 	"github.com/jordangarrison/advent-of-code/2021/go/day6"
 	"github.com/jordangarrison/advent-of-code/2021/go/day7"
+	"github.com/jordangarrison/advent-of-code/2021/go/day8"
 	"github.com/jordangarrison/advent-of-code/2021/go/util"
 )
 
@@ -26,7 +27,11 @@ func main() {
 			os.Exit(1)
 		}
 		data, err := util.PullData(day)
-		fmt.Printf("%s\n", data)
+		if err != nil {
+			fmt.Println("Error: Could not pull data")
+			os.Exit(1)
+		}
+		fmt.Println(string(data))
 		return
 	}
 
@@ -54,6 +59,9 @@ func main() {
 		case "7":
 			part1 := util.GetData(7, 1)
 			util.Stats(day7.Run, part1)
+		case "8":
+			part1 := util.GetData(8, 1)
+			util.Stats(day8.Run, part1)
 		default:
 			fmt.Printf("Day %s not implemented\n", arg)
 		}

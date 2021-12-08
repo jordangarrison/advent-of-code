@@ -31,7 +31,7 @@ func GetData(day int, part int) string {
 
 func PullData(day int) ([]byte, error) {
 	client := new(http.Client)
-	url := "https://adventofcode.com/2019/day/" + strconv.Itoa(day) + "/input"
+	url := "https://adventofcode.com/2021/day/" + strconv.Itoa(day) + "/input"
 	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {
 		return nil, err
