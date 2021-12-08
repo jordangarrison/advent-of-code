@@ -29,6 +29,16 @@ func BenchmarkPart1(b *testing.B) {
 	}
 }
 
+func TestPart2Small(t *testing.T) {
+	input := `acedgfb cdfbe gcdfa fbcad dab cefabd cdfgeb eafb cagedb ab | cdfeb fcadb cdfeb cdbaf`
+	expected := 5353
+	d := NewDay(input)
+	result := d.Part2()
+	if result != expected {
+		t.Errorf("Expected %v, got %v", expected, result)
+	}
+}
+
 func TestPart2(t *testing.T) {
 	expected := 168
 	d := NewDay(input)

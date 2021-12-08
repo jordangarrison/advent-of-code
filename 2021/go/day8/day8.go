@@ -45,14 +45,15 @@ func (d *Day) readInput() []inputOutput {
 	return digits
 }
 
+var rules = map[int]int{
+	1: 2,
+	4: 4,
+	7: 3,
+	8: 7,
+}
+
 func (d *Day) Part1() int {
 	digits := d.readInput()
-	rules := map[int]int{
-		1: 2,
-		4: 4,
-		7: 3,
-		8: 7,
-	}
 	count := 0
 	for i := range digits {
 		for j := range digits[i].output {
@@ -88,13 +89,6 @@ func shouldAdd(processor process, chars []string, charsToAdd ...string) []string
 
 func (d *Day) Part2() int {
 	digits := d.readInput()
-	rules := map[int]int{
-		1: 2,
-		4: 4,
-		7: 3,
-		8: 7,
-	}
-	count := 0
 	for i := range digits {
 		df := digitFormat{
 			top:        []string{"a", "b", "c", "d", "e", "f", "g"},
@@ -122,8 +116,9 @@ func (d *Day) Part2() int {
 			case rules[4]:
 				df.top = shouldAdd(funk.LeftJoinString, df.top, chars...)
 				df.bottom = shouldAdd(funk.LeftJoinString, df.bottom, chars...)
-				df.middle = shouldAdd(funk.InnerJoinString, df.middle, chars...)
 				df.upperLeft = shouldAdd(funk.InnerJoinString, df.upperLeft, chars...)
+				df.middle = shouldAdd(funk.InnerJoinString, df.middle, chars...)
+				df.middle = shouldAdd(funk.OuterJoinString, df.upperLeft, df.middle...)
 				df.lowerLeft = shouldAdd(funk.LeftJoinString, df.lowerLeft, chars...)
 				df.upperRight = shouldAdd(funk.InnerJoinString, df.upperRight, chars...)
 				df.lowerRight = shouldAdd(funk.InnerJoinString, df.lowerRight, chars...)
@@ -147,5 +142,5 @@ func (d *Day) Part2() int {
 		}
 		fmt.Printf("%+v\n", df)
 	}
-	return count
+	return 0
 }
