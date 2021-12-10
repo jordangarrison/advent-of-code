@@ -6,6 +6,7 @@ import (
 	"strconv"
 
 	"github.com/jordangarrison/advent-of-code/2021/go/day1"
+	"github.com/jordangarrison/advent-of-code/2021/go/day10"
 	"github.com/jordangarrison/advent-of-code/2021/go/day2"
 	"github.com/jordangarrison/advent-of-code/2021/go/day3"
 	"github.com/jordangarrison/advent-of-code/2021/go/day4"
@@ -65,6 +66,9 @@ func main() {
 		case "9":
 			part1 := util.GetData(9, 1)
 			util.Stats(day9.Run, part1)
+		case "10":
+			part1 := util.GetData(10, 1)
+			util.Stats(day10.Run, part1)
 		default:
 			fmt.Printf("Day %s not implemented\n", arg)
 		}
