@@ -45,6 +45,40 @@ fn part2(input: &str) -> u64 {
     sums[sums.len() - 3..].iter().sum()
 }
 
+// This is a function which times the execution of part 1
+// It is used to compare the performance of the different solutions
+// It is not used in the main function
+// it will be runned 100000 times and the average time will be printed
+fn _part1_bench(input: &str, iterations: u64) {
+    let mut sum: f64 = 0.0;
+    for _ in 0..iterations {
+        let start = std::time::Instant::now();
+        part1(input);
+        sum += start.elapsed().as_secs_f64();
+    }
+    println!(
+        "part1_bench: {} nanoseconds",
+        sum * 1000000000.0 / iterations as f64
+    );
+}
+
+// This is a function which times the execution of part 2
+// It is used to compare the performance of the different solutions
+// It is not used in the main function
+// it will be runned 100000 times and the average time will be printed
+fn _part2_bench(input: &str, iterations: u64) {
+    let mut sum: f64 = 0.0;
+    for _ in 0..iterations {
+        let start = std::time::Instant::now();
+        part2(input);
+        sum += start.elapsed().as_secs_f64();
+    }
+    println!(
+        "part2_bench: {} nanoseconds",
+        sum * 1000000000.0 / iterations as f64
+    );
+}
+
 // tests
 #[cfg(test)]
 mod tests {
@@ -67,6 +101,7 @@ mod tests {
 
 10000";
         assert_eq!(part1(input), 24000);
+        _part1_bench(input, 1000000);
     }
 
     #[test]
@@ -86,5 +121,6 @@ mod tests {
 
 10000";
         assert_eq!(part2(input), 45000);
+        _part2_bench(input, 1000000);
     }
 }
