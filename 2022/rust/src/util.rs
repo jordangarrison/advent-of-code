@@ -14,3 +14,16 @@ pub fn get_day_input(day: u8) -> String {
     let path = format!("./data/day{}.txt", day);
     read_file(&path)
 }
+
+// Pretty print a time in seconds with appropriate units to 3 decimal places
+pub fn pretty_print_time(time: f64) -> String {
+    if time < 1e-6 {
+        format!("{:.3} ns", time * 1e9)
+    } else if time < 1e-3 {
+        format!("{:.3} μs", time * 1e6)
+    } else if time < 1.0 {
+        format!("{:.3} ms", time * 1e3)
+    } else {
+        format!("{:.3} s", time)
+    }
+}
