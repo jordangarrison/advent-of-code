@@ -27,3 +27,17 @@ pub fn pretty_print_time(time: f64) -> String {
         format!("{:.3} s", time)
     }
 }
+
+// Timing function for execution of another function
+pub fn time_execution<F>(f: F)
+where
+    F: FnOnce(),
+{
+    let start = std::time::Instant::now();
+    f();
+    // pretty print the execution time with appropriate units to 3 decimal places
+    println!(
+        "Execution time: {}",
+        pretty_print_time(start.elapsed().as_secs_f64())
+    );
+}
