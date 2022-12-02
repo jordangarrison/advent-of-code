@@ -36,30 +36,26 @@ fn part1(input: &str) -> u64 {
             // for each game, apply the game rules to player 2
             let player2_choice_score = game_rules.get(*player2).unwrap();
             // evaluate the game results for player 2 as win, loss, or draw
-            if *player1 == "A" {
-                if *player2 == "X" {
-                    3 + player2_choice_score.clone()
-                } else if *player2 == "Y" {
-                    6 + player2_choice_score.clone()
-                } else {
-                    player2_choice_score.clone()
-                }
-            } else if *player1 == "B" {
-                if *player2 == "X" {
-                    player2_choice_score.clone()
-                } else if *player2 == "Y" {
-                    3 + player2_choice_score.clone()
-                } else {
-                    6 + player2_choice_score.clone()
-                }
-            } else {
-                if *player2 == "X" {
-                    6 + player2_choice_score.clone()
-                } else if *player2 == "Y" {
-                    player2_choice_score.clone()
-                } else {
-                    3 + player2_choice_score.clone()
-                }
+            match *player1 {
+                "A" => match *player2 {
+                    "X" => 3 + player2_choice_score.clone(),
+                    "Y" => 6 + player2_choice_score.clone(),
+                    "Z" => player2_choice_score.clone(),
+                    _ => 0,
+                },
+                "B" => match *player2 {
+                    "X" => player2_choice_score.clone(),
+                    "Y" => 3 + player2_choice_score.clone(),
+                    "Z" => 6 + player2_choice_score.clone(),
+                    _ => 0,
+                },
+                "C" => match *player2 {
+                    "X" => 6 + player2_choice_score.clone(),
+                    "Y" => player2_choice_score.clone(),
+                    "Z" => 3 + player2_choice_score.clone(),
+                    _ => 0,
+                },
+                _ => 0,
             }
         })
         .sum()
@@ -87,30 +83,26 @@ fn part2(input: &str) -> u64 {
             // for each game, apply the game rules to player 2
             let player2_win_loss_score = win_loss_rules.get(*player2).unwrap();
             // evaluate the game results for player 2 as win, loss, or draw
-            if *player1 == "A" {
-                if *player2 == "X" {
-                    game_rules.get("C").unwrap() + player2_win_loss_score.clone()
-                } else if *player2 == "Y" {
-                    game_rules.get("A").unwrap() + player2_win_loss_score.clone()
-                } else {
-                    game_rules.get("B").unwrap() + player2_win_loss_score.clone()
-                }
-            } else if *player1 == "B" {
-                if *player2 == "X" {
-                    game_rules.get("A").unwrap() + player2_win_loss_score.clone()
-                } else if *player2 == "Y" {
-                    game_rules.get("B").unwrap() + player2_win_loss_score.clone()
-                } else {
-                    game_rules.get("C").unwrap() + player2_win_loss_score.clone()
-                }
-            } else {
-                if *player2 == "X" {
-                    game_rules.get("B").unwrap() + player2_win_loss_score.clone()
-                } else if *player2 == "Y" {
-                    game_rules.get("C").unwrap() + player2_win_loss_score.clone()
-                } else {
-                    game_rules.get("A").unwrap() + player2_win_loss_score.clone()
-                }
+            match *player1 {
+                "A" => match *player2 {
+                    "X" => game_rules.get("C").unwrap() + player2_win_loss_score.clone(),
+                    "Y" => game_rules.get("A").unwrap() + player2_win_loss_score.clone(),
+                    "Z" => game_rules.get("B").unwrap() + player2_win_loss_score.clone(),
+                    _ => 0,
+                },
+                "B" => match *player2 {
+                    "X" => game_rules.get("A").unwrap() + player2_win_loss_score.clone(),
+                    "Y" => game_rules.get("B").unwrap() + player2_win_loss_score.clone(),
+                    "Z" => game_rules.get("C").unwrap() + player2_win_loss_score.clone(),
+                    _ => 0,
+                },
+                "C" => match *player2 {
+                    "X" => game_rules.get("B").unwrap() + player2_win_loss_score.clone(),
+                    "Y" => game_rules.get("C").unwrap() + player2_win_loss_score.clone(),
+                    "Z" => game_rules.get("A").unwrap() + player2_win_loss_score.clone(),
+                    _ => 0,
+                },
+                _ => 0,
             }
         })
         .sum()
