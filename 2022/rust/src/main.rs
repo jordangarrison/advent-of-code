@@ -1,4 +1,5 @@
 mod day1;
+mod day2;
 mod util;
 use std::env;
 
@@ -10,6 +11,7 @@ fn main() {
         let input = util::get_day_input(day);
         match day {
             1 => day1::run(&input),
+            2 => day2::run(&input),
             _ => println!("Day {} not implemented", day),
         };
     });
