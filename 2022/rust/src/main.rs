@@ -6,6 +6,7 @@ mod day5;
 mod day6;
 mod day7;
 mod day8;
+mod day9;
 mod util;
 use std::env;
 
@@ -24,6 +25,7 @@ fn main() {
             6 => util::time_execution(|| day6::run(&input)),
             7 => util::time_execution(|| day7::run(&input)),
             8 => util::time_execution(|| day8::run(&input)),
+            9 => util:: time_execution(|| day9::run(&input)),
             _ => println!("Day {} not implemented", day),
         };
     });
