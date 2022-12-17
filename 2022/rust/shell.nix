@@ -1,6 +1,6 @@
 { pkgs ? import <nixpkgs> { } }:
 pkgs.mkShell {
-  nativeBuildInputs = with pkgs; [ rustc cargo gcc pkg-config ];
+  nativeBuildInputs = with pkgs; [ rustc cargo gcc pkg-config openssl ];
   buildInputs = with pkgs; [ rustfmt clippy ];
 
   # Certain Rust tools won't work without this
