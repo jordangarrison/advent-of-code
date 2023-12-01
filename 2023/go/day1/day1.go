@@ -50,6 +50,14 @@ func (d day1) Part2() int {
 	// of the array are combined and returned
 	sum := 0
 	words := [9]string{"one", "two", "three", "four", "five", "six", "seven", "eight", "nine"}
+	// edgeCases := map[string]int{
+	// 	"oneight":   18,
+	// 	"twoone":    21,
+	// 	"threeight": 38,
+	// 	"fiveight":  58,
+	// 	"sevenine":  79,
+	// 	"eighthree": 83,
+	// }
 	for _, line := range strings.Split(d.input, "\n") {
 		digits := []rune{}
 		word := ""
