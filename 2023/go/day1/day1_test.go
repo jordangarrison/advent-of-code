@@ -19,7 +19,7 @@ func TestPart1(t *testing.T) {
 
 func TestPart2(t *testing.T) {
 	input := `two1nine
-	eightwothree
+	eighthree
 	abcone2threexyz
 	xtwone3four
 	4nineeightseven2

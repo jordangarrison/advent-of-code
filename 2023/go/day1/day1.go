@@ -18,6 +18,7 @@ func NewDay1(input string) *day1 {
 func Run(input string) int {
 	d1 := NewDay1(input)
 	fmt.Println("Day 1 Part 1:", d1.Part1())
+	fmt.Println("Day 1 Part 2:", d1.Part2())
 	return 0
 }
 
@@ -54,12 +55,10 @@ func (d day1) Part2() int {
 		word := ""
 		for _, char := range line {
 			if unicode.IsDigit(char) {
-				println("digit", string(char-0))
 				digits = append(digits, char-48)
 				word = ""
 			} else if unicode.IsLetter(char) {
 				word += string(char)
-				fmt.Println(word)
 				for index, w := range words {
 					if strings.Contains(word, w) {
 						digits = append(digits, rune(index+1))
@@ -67,12 +66,13 @@ func (d day1) Part2() int {
 					}
 				}
 			}
-			fmt.Printf("%+v\n", digits)
 		}
-		fmt.Printf("DIGITS: %+v\n", digits)
-		rowStr := fmt.Sprintf("%c%c", digits[0], digits[len(digits)-1])
-		fmt.Printf("LINE: %v\n", rowStr)
-		row, _ := strconv.Atoi(rowStr)
+		// get the first and last digits of the array
+		rowStr := fmt.Sprintf("%v%v", digits[0], digits[len(digits)-1])
+		row, err := strconv.Atoi(rowStr)
+		if err != nil {
+			panic(err)
+		}
 		sum += row
 	}
 
