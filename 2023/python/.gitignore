@@ -1,0 +1,9 @@
+# Devenv
+.devenv*
+devenv.local.nix
+
+.env
+data
+
+**__pycache__**
+.pytest_cache
