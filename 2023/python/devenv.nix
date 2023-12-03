@@ -18,7 +18,11 @@
   '';
 
   scripts.aoc-run.exec = ''
-    go run main.go $@
+    python aoc2023/main.py $@
+  '';
+
+  scripts.aoc-test.exec = ''
+    python -m pytest tests/test_day$1.py
   '';
 
   enterShell = ''
