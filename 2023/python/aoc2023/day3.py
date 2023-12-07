@@ -1,4 +1,5 @@
 from pydoc import isdata
+import symbol
 
 
 def main(data: str):
@@ -8,16 +9,16 @@ def main(data: str):
 
 
 def get_symbol_coordinates(symbol_coordinate: tuple[int, int]) -> list[tuple[int, int]]:
-    x, y = symbol_coordinate
+    line, c = symbol_coordinate
     return [
-        (x - 1 if x > 0 else x, y - 1 if y > 0 else y),
-        (x, y - 1 if y > 0 else y),
-        (x + 1 if x < 9 else x, y - 1 if y > 0 else y),
-        (x - 1 if x > 0 else x, y),
-        (x + 1 if x < 9 else x, y),
-        (x - 1 if x > 0 else x, y + 1 if y < 9 else y),
-        (x, y + 1 if y < 9 else y),
-        (x + 1 if x < 9 else x, y + 1 if y < 9 else y),
+        (line - 1 if line > 0 else line, c - 1 if c > 0 else c),
+        (line, c - 1 if c > 0 else c),
+        (line + 1 if line < 9 else line, c - 1 if c > 0 else c),
+        (line - 1 if line > 0 else line, c),
+        (line + 1 if line < 9 else line, c),
+        (line - 1 if line > 0 else line, c + 1 if c < 9 else c),
+        (line, c + 1 if c < 9 else c),
+        (line + 1 if line < 9 else line, c + 1 if c < 9 else c),
     ]
 
 
@@ -27,14 +28,18 @@ def part1(data: str) -> int:
     lines = data.splitlines()
     for i, line in enumerate(lines):
         print(i, line)
-        num_array: list[int] = []
+        num_array: list[list[tuple[int, str]]] = []
+        symbol_coordinate_array: list[list]
         current_num: list[tuple[int, str]] = []
         for j, c in enumerate(line):
             if c == ".":
                 if current_num != []:
-                    current_num.append((j, c))
+                    num_array.append(current_num)
+                    current_num = []
             elif c.isdigit():
                 current_num.append((j, c))
+            else:
+                symbol_coordinates = get_symbol_coordinates((j, i))
 
     return sum
 
