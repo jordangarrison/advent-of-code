@@ -1,4 +1,5 @@
 import gleam/io
+import gleam/string
 import gleam/hackney
 import gleam/http.{Get}
 import gleam/http/request
@@ -38,5 +39,18 @@ pub fn pull_day(day: String, output_dir: String) {
   case file {
     Ok(_) -> io.println("Pulled day " <> day)
     Error(_) -> io.println("Failed to pull day " <> day)
+  }
+}
+
+pub fn read_day(day: String) -> String {
+  let input_file = "./data/day" <> day <> ".txt"
+  let input = simplifile.read(from: input_file)
+  case input {
+    Ok(contents) ->
+      contents
+      |> string.trim
+    Error(_) -> {
+      panic as "Failed to read input file"
+    }
   }
 }
