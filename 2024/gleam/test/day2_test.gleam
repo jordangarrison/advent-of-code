@@ -7,7 +7,7 @@ pub fn main() {
 }
 
 // gleeunit test functions end in `_test`
-pub fn main_test() {
+pub fn run_test() {
   "7 6 4 2 1
 1 2 7 8 9
 9 7 6 2 1
@@ -19,7 +19,7 @@ pub fn main_test() {
 }
 
 // gleeunit test functions end in `_test`
-pub fn main2_test() {
+pub fn run2_test() {
   "7 10 3 2 1
 1 5 7 8 9
 9 1
@@ -28,6 +28,70 @@ pub fn main2_test() {
 5 4 3 2 1"
   |> day2.run
   |> should.equal(2)
+}
+
+pub fn run3_test() {
+  "79 78 76 74 72
+4 7 9 12 15 17 18
+70 67 65 63 62 60 58 56
+42 44 46 47 48 51 53 54
+64 63 62 59 58"
+  |> day2.run
+  |> should.equal(5)
+}
+
+pub fn run4_test() {
+  "64 63 62 59 58"
+  |> day2.run
+  |> should.equal(1)
+}
+
+pub fn run5_test() {
+  "64 63 62 60 58"
+  |> day2.run
+  |> should.equal(1)
+}
+
+pub fn run_all_the_same_test() {
+  "1 1 1 1 1"
+  |> day2.run
+  |> should.equal(0)
+}
+
+pub fn run_all_decreasing_test() {
+  "5 4 3 2 1"
+  |> day2.run
+  |> should.equal(1)
+}
+
+pub fn run_all_increasing_test() {
+  "1 2 3 4 5"
+  |> day2.run
+  |> should.equal(1)
+}
+
+pub fn run_all_increasing_by_3_test() {
+  "1 2 5"
+  |> day2.run
+  |> should.equal(1)
+}
+
+pub fn run_all_decreasing_by_2_test() {
+  "5 4 2"
+  |> day2.run
+  |> should.equal(1)
+}
+
+pub fn run_all_increasing_with_4_test() {
+  "1 2 3 4 8"
+  |> day2.run
+  |> should.equal(0)
+}
+
+pub fn run_all_decreasing_with_3_test() {
+  "5 4 1"
+  |> day2.run
+  |> should.equal(1)
 }
 
 pub fn all_increasing_test() {
@@ -51,18 +115,6 @@ pub fn all_decreasing_test() {
 pub fn all_not_decreasing_test() {
   [5, 4, 3, 4, 5]
   |> day2.all_decreasing
-  |> should.equal(False)
-}
-
-pub fn two_nums_equivalent_test() {
-  [1, 2, 3, 3, 5]
-  |> day2.two_nums_equivalent
-  |> should.equal(True)
-}
-
-pub fn two_nums_not_equivalent_test() {
-  [1, 2, 3, 4, 5]
-  |> day2.two_nums_equivalent
   |> should.equal(False)
 }
 
@@ -114,8 +166,8 @@ pub fn decreasing_by_2_test() {
   |> should.equal(True)
 }
 
-pub fn decreasing_by_more_than_2_test() {
-  [5, 4, 1]
-  |> day2.diff_by_no_more_than(2)
+pub fn decreasing_by_more_than_3_test() {
+  [8, 5, 1]
+  |> day2.diff_by_no_more_than(3)
   |> should.equal(False)
 }

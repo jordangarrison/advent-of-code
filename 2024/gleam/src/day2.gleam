@@ -18,7 +18,7 @@ pub fn run(input: String) -> Int {
   input
   |> string.split("\n")
   |> list.map(is_safe)
-  |> list.filter(fn(x) { x })
+  |> list.filter(fn(x) { x == True })
   |> list.length
 }
 
@@ -29,11 +29,9 @@ pub fn is_safe(input: String) -> Bool {
     |> list.map(to_int)
   case
     all_increasing(input_nums)
-    && diff_by_no_more_than(input_nums, 3)
-    && !two_nums_equivalent(input_nums),
+    && diff_by_no_more_than(input_nums, 3),
     all_decreasing(input_nums)
-    && diff_by_no_more_than(input_nums, 2)
-    && !two_nums_equivalent(input_nums)
+    && diff_by_no_more_than(input_nums, 3)
   {
     True, _ -> True
     _, True -> True
@@ -52,18 +50,22 @@ pub fn diff_by_no_more_than(input: List(Int), n: Int) -> Bool {
 }
 
 pub fn all_increasing(input: List(Int)) -> Bool {
-  input == list.sort(input, by: int.compare)
+  input
+  |> list.window(2)
+  |> list.all(fn(win) {
+    case win {
+      [a, b] -> a < b
+      _ -> False
+    }
+  })
 }
 
 pub fn all_decreasing(input: List(Int)) -> Bool {
-  input == list.sort(input, by: fn(x, y) { int.compare(y, x) })
-}
-
-pub fn two_nums_equivalent(input: List(Int)) -> Bool {
-  list.window(input, 2)
-  |> list.any(fn(win) {
+  input
+  |> list.window(2)
+  |> list.all(fn(win) {
     case win {
-      [a, b] -> a == b
+      [a, b] -> a > b
       _ -> False
     }
   })
