@@ -1,7 +1,7 @@
+import gleam/int
 import gleam/io
 import gleam/list
 import gleam/string
-import gleam/int
 import pull_day.{read_day}
 
 pub fn main() {
@@ -28,10 +28,8 @@ pub fn is_safe(input: String) -> Bool {
     |> string.split(" ")
     |> list.map(to_int)
   case
-    all_increasing(input_nums)
-    && diff_by_no_more_than(input_nums, 3),
-    all_decreasing(input_nums)
-    && diff_by_no_more_than(input_nums, 3)
+    all_increasing(input_nums) && diff_by_no_more_than(input_nums, 3),
+    all_decreasing(input_nums) && diff_by_no_more_than(input_nums, 3)
   {
     True, _ -> True
     _, True -> True
@@ -71,7 +69,7 @@ pub fn all_decreasing(input: List(Int)) -> Bool {
   })
 }
 
-fn to_int(input: String) -> Int {
+pub fn to_int(input: String) -> Int {
   case int.parse(input) {
     Ok(i) -> i
     Error(_) -> panic as "Could not parse input as integer"

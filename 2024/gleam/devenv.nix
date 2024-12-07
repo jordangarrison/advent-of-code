@@ -19,7 +19,6 @@
 
   # https://devenv.sh/scripts/
 
-
   # https://devenv.sh/tasks/
   # tasks = {
   #   "myproj:setup".exec = "mytool build";
@@ -32,4 +31,5 @@
   # pre-commit.hooks.shellcheck.enable = true;
 
   # See full reference at https://devenv.sh/reference/options/
+  devcontainer.enable = true;
 }

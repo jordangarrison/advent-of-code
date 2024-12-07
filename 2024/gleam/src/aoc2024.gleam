@@ -1,9 +1,10 @@
 import argv
-import gleam/io
-import pull_day
 import day1
 import day2
 import day4
+import day5
+import gleam/io
+import pull_day
 
 pub fn main() {
   case argv.load().arguments {
@@ -18,6 +19,7 @@ fn run_day(day) {
     "1" -> day1.main()
     "2" -> day2.main()
     "4" -> day4.main()
+    "5" -> day5.main()
     _ -> io.println("Uknown day " <> day)
   }
 }
