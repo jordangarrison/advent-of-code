@@ -25,23 +25,17 @@ pub fn run_part1(input: String) -> Int {
 }
 
 pub fn run_part2(input: String) -> Int {
-  let safety_checks =
-    input
-    |> string.split("\n")
+  input
+  |> string.split("\n")
+  |> list.map(fn(safety_check) {
+    let safety_check_1 = safety_check |> string.split(" ")
+    let buffered_safety_checks =
+      safety_check_1
+      |> list.combinations({ safety_check_1 |> list.length } - 1)
+      |> list.map(string.join(_, " "))
 
-  let buffered_safety_checks =
-    safety_checks
-    |> list.map(fn(safety_check) {
-      let safety_check_1 = safety_check |> string.split(" ")
-      let buffered_safety_checks =
-        safety_check_1
-        |> list.combinations({ safety_check_1 |> list.length } - 1)
-        |> list.map(string.join(_, " "))
-
-      buffered_safety_checks |> list.append([safety_check])
-    })
-
-  buffered_safety_checks
+    buffered_safety_checks |> list.append([safety_check])
+  })
   |> list.count(list.any(_, is_safe))
 }
 
