@@ -3,6 +3,7 @@ import day1
 import day2
 import day4
 import day5
+import day8
 import gleam/io
 import pull_day
 
@@ -20,6 +21,7 @@ fn run_day(day) {
     "2" -> day2.main()
     "4" -> day4.main()
     "5" -> day5.main()
+    "8" -> day8.main()
     _ -> io.println("Uknown day " <> day)
   }
 }
