@@ -17,3 +17,14 @@ pub fn run_part1_test() {
   |> day1.run_part1
   |> should.equal(11)
 }
+
+pub fn run_part2_test() {
+  "3   4
+4   3
+2   5
+1   3
+3   9
+3   3"
+  |> day1.run_part2
+  |> should.equal(31)
+}
