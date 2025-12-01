@@ -13,11 +13,23 @@ pub fn run_part1(input: String) -> Int {
   let parsed_input =
     input
     |> parse
+    |> echo
   0
 }
 
 fn parse(input: String) {
   input
   |> string.split("\n")
-  |> list.map(fn(line) { line |> io.println })
+  |> list.map(fn(line) { line })
+}
+
+fn update_position(change: Int, current: Int) -> Int {
+  current + change % 100
+}
+
+fn count_zeros(positions: List(Int)) {
+  positions
+  |> list.filter(fn(x) { x == 0 })
+  |> echo
+  |> list.count
 }
