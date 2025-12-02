@@ -22,7 +22,6 @@ pub fn run_part1(input: String) -> Int {
       #(new_position, new_position)
     })
   positions
-  |> echo
   |> list.filter(fn(pos) { pos == 0 })
   |> list.length
 }
@@ -40,7 +39,7 @@ fn parse_instruction(instruction: String) {
       |> result.map(fn(number) { -number })
       |> result.unwrap(0)
     "R" <> num_str -> int.parse(num_str) |> result.unwrap(0)
-    _ -> panic(Nil)
+    _ -> panic
   }
 }
 
@@ -52,10 +51,4 @@ fn update_position(change: Int, current: Int) -> Int {
     position if position > 99 -> position - 100
     _ -> position_raw
   }
-}
-
-fn count_zeros(positions: List(Int)) {
-  positions
-  |> list.filter(fn(x) { x == 0 })
-  |> echo
 }
