@@ -12,9 +12,7 @@ pub fn main() {
 
 pub fn run_part1(input: String) -> Int {
   let starting_position = 50
-  let instructions =
-    input
-    |> parse
+  let instructions = input |> parse
 
   let #(_, positions) =
     list.map_fold(instructions, starting_position, fn(position, instruction) {
@@ -24,6 +22,13 @@ pub fn run_part1(input: String) -> Int {
   positions
   |> list.filter(fn(pos) { pos == 0 })
   |> list.length
+}
+
+pub fn run_part2(input: String) -> Int {
+  let starting_position = 50
+  let instructions = input |> parse
+
+  todo
 }
 
 fn parse(input: String) {
@@ -51,4 +56,8 @@ fn update_position(change: Int, current: Int) -> Int {
     position if position > 99 -> position - 100
     _ -> position_raw
   }
+}
+
+fn passes_of_zero(change: Int, current: Int) -> Int {
+  todo
 }
