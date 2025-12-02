@@ -59,5 +59,6 @@ fn update_position(change: Int, current: Int) -> Int {
 }
 
 fn passes_of_zero(change: Int, current: Int) -> Int {
-  todo
+  let total = change + current
+  total / 100
 }
